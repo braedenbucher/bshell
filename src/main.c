@@ -2,6 +2,8 @@
 #include <string.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <signal.h>
+#include <setjmp.h>
 #include <sys/wait.h>
 #include <readline/readline.h>
 #include <readline/history.h>
@@ -10,14 +12,17 @@
 #define MAX_CWD_SIZE 1024
 #define INIT_CMD_CAP 8
 
+static volatile sig_atomic_t jump_flag = 0;
+static sigjmp_buf env;
+
+void setup_sigaction_handler();
+void sigint_handler();
 char **inputToCommand(char *);
 void freeCommand(char **);
 int cd(char *);
 
 /**
  * Main shell lifecycle: Input, parse, execute, free.
- * 
- * Returns: 0 on successful exit
  */
 int main() {
     char *input = NULL;
@@ -27,8 +32,14 @@ int main() {
     int status;
 
     char cwd[MAX_CWD_SIZE];
-    
+
+    setup_sigaction_handler();
+
     while(1) {
+        if (sigsetjmp(env, 1) == 42) {
+            printf("\n");
+        }
+        jump_flag = 1;
 
         // Prepend cwd to prompt
         if (getcwd(cwd, sizeof(cwd)) == NULL) {
@@ -92,6 +103,7 @@ int main() {
             continue;
         } else if (child_pid == 0) {
             // Child path
+            signal(SIGINT, SIG_DFL);
             execvp(command[0], command);
             fprintf(stderr, "Error: Command not found or failed to execute '%s': %s\n", command[0], strerror(errno));
             exit(1);
@@ -106,6 +118,30 @@ int main() {
 
     return 0;
 }
+
+/*
+Sets up the sigaction struct, linking it to our signal handler,
+and using it as the handler for SIGINT (CTRL-C).
+*/
+void setup_sigaction_handler() {
+    struct sigaction s;
+    s.sa_handler = sigint_handler;
+    sigemptyset(&s.sa_mask);
+    s.sa_flags = SA_RESTART;
+    sigaction(SIGINT, &s, NULL);
+}
+
+/*
+ * Custom signal handler for the SIGINT signal, jumping back
+ * to the parent shell and resetting the prompt.
+*/
+void sigint_handler() {
+    if (!jump_flag) {
+        return;
+    }
+    siglongjmp(env, 42);
+}
+
 
 /**
  * Tokenizes input string into a dynamically-allocated array of command arguments.
