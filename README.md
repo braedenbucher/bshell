@@ -77,6 +77,10 @@ make build
 
 To exit, type `exit`.
 
+> [!WARNING]
+> This shell handles lifecycle errors (allocation, forking, processes) and some
+> native bash errors, but be cautious when running complex command setups.
+
 ## Makefile Targets
 
 `make build` - Compile the shell
