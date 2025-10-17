@@ -92,6 +92,13 @@ To exit, type `exit`.
 
 `make clean` - Remove compiled binaries
 
+## Future Additions
+
+- Piping
+- Background Processes
+- Job Control
+- Aliases
+
 ## License
 
 MIT License - see [LICENSE](LICENSE) for details
