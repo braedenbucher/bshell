@@ -62,11 +62,6 @@ sudo apt-get update
 sudo apt-get install -y build-essential libreadline-dev
 ```
 
-**Fedora/RHEL:**
-```bash
-sudo dnf install -y gcc make readline-devel
-```
-
 **macOS:**
 ```bash
 brew install readline
@@ -91,9 +86,11 @@ To exit, type `exit`.
 
 ## Makefile Targets
 
-- `make build` - Compile the shell
-- `make run` - Build and run the shell
-- `make clean` - Remove compiled binaries
+`make build` - Compile the shell
+
+`make run` - Build and run the shell
+
+`make clean` - Remove compiled binaries
 
 ## License
 
