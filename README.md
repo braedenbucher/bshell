@@ -75,13 +75,6 @@ make build
 ./bshell
 ```
 
-## Usage
-
-Run the shell:
-```bash
-./bshell
-```
-
 To exit, type `exit`.
 
 ## Makefile Targets
