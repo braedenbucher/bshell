@@ -6,10 +6,14 @@ See the [docs](DOCS.md) for architecture and implementation.
 
 ## Utilities
 
-Command parsing and execution in a child process
+**Processes**: Command parsing and execution in a child process
+
 **Built-in commands:** `cd`, `exit`
+
 **Signal handling:** SIGINT (Ctrl-C) with reset and process cleanup
+
 **Basic I/O redirection:** `<`, `>`, `>>`, `2>` (stderr)
+
 **Input features:** Dynamic directory prompt, command history, and tab completion
 
 ## Requirements
