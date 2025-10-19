@@ -89,6 +89,10 @@ To exit, type `exit`.
 
 `make clean` - Remove compiled binaries
 
+## References
+Development of this shell was guided by the workflow described in [Indradhanush Gupta’s blog series on writing a Unix shell](https://igupta.in/blog/writing-a-unix-shell-part-1/).
+Core features of `bshell` were implemented independently and expanded beyond Gupta’s examples.
+
 ## Future Additions
 
 - Piping
