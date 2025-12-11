@@ -30,7 +30,7 @@ This project includes the DevContainer configuration used for development.
 **Steps:**
 1. Clone the repository:
 ```bash
-   git clone https://github.com/yourusername/bshell.git
+   git clone https://github.com/braedenbucher/bshell.git
    cd bshell
 ```
 
