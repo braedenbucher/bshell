@@ -69,7 +69,7 @@ brew install readline
 
 **Build and Run:**
 ```bash
-git clone https://github.com/yourusername/bshell.git
+git clone https://github.com/braedenbucher/bshell.git
 cd bshell
 make build
 ./bshell
