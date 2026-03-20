@@ -140,9 +140,6 @@ int main() {
 /**
  * Scrapes a command for <, >, >>, 2> and their targets, storing
  * redirect info into a struct for child execution.
- *
- * @param command: Pointer to command array to scrape
- * @param redir: Pointer to redirect_info structure to populate
  */
 void setup_redirects(char **command, struct redirect_info *redir) {
     // Initialize the struct
@@ -194,8 +191,6 @@ void setup_redirects(char **command, struct redirect_info *redir) {
 
 /**
  * Apply file redirections for stdin, stdout, and stderr.
- * 
- * @param redir: Pointer to redirect_info structure containing redirection parameters
  *
  * Note: This function exits the process on error, as it's intended to be
  * called after forking in a child process. File descriptors are closed after
@@ -286,11 +281,9 @@ void sigint_handler() {
 /**
  * Tokenizes input string into a dynamically-allocated array of command arguments.
  * 
- * @param input: The input string to tokenize
- * @return: A null terminated array of string pointers. Returns an array with just null if input is
- *          all whitespace.
- * 
- * Note: Calls exit(1) on allocation failure
+ * Note:
+ * - Calls exit(1) on allocation failure
+ * - Returns an array with just null if input is all whitespace.
  */
 char **inputToCommand(char *input) {
     int capacity = INIT_CMD_CAP;
@@ -349,7 +342,6 @@ char **inputToCommand(char *input) {
  * Iterates through array, freeing each individual string,
  * then frees the array itself. Safe to call with NULL pointer.
  * 
- * @param command: Null terminated array of strings to free
  */
 void freeCommand(char **command) {
     if (command == NULL) return;
@@ -363,8 +355,7 @@ void freeCommand(char **command) {
 /**
  * Built-in change directory function.
  * 
- * @param path: The directory path to change to (relative or absolute)
- * @return: 0 on success, -1 on failure (with errno set)
+ * Note: Returns 0 on success, -1 on failure w/ errno set
  */
 int cd(char *path) {
     return chdir(path);
