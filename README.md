@@ -17,6 +17,7 @@ See the [docs](DOCS.md) for architecture and implementation.
 ### Option 1: Using DevContainer (Recommended)
 
 This project includes the DevContainer configuration used for development.
+
 _Requires [Docker/Docker Desktop](https://www.docker.com/get-started), [Visual Studio Code](https://code.visualstudio.com/), and the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)_
 
 1. Clone the repository:
