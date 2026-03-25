@@ -17,13 +17,8 @@ See the [docs](DOCS.md) for architecture and implementation.
 ### Option 1: Using DevContainer (Recommended)
 
 This project includes the DevContainer configuration used for development.
+_Requires [Docker/Docker Desktop](https://www.docker.com/get-started), [Visual Studio Code](https://code.visualstudio.com/), and the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)_
 
-**Prerequisites:**
-- [Docker/Docker Desktop](https://www.docker.com/get-started)
-- [Visual Studio Code](https://code.visualstudio.com/)
-- [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
-
-**Steps:**
 1. Clone the repository:
 ```bash
    git clone https://github.com/braedenbucher/bshell.git
@@ -47,10 +42,7 @@ This project includes the DevContainer configuration used for development.
 ```
 
 ### Option 2: Local Installation
-**Prerequisites:**
-- GCC compiler
-- Make
-- GNU Readline library (`libreadline-dev`)
+_Requires [GCC Compiler](https://gcc.gnu.org/), [Make](https://www.gnu.org/software/make/), [GNU Readline library](https://tiswww.case.edu/php/chet/readline/rltop.html)_
 
 **Ubuntu/Debian:**
 ```bash
