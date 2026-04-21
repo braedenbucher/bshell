@@ -2,7 +2,7 @@
 
 A functional Unix shell built from scratch in C. Used as a tool to learn process management, system calls, signals, and other OS internals.
 
-See the [docs](\docs) for architecture and implementation.
+See the [docs](/docs) for architecture and implementation.
 
 ## Utilities
 
